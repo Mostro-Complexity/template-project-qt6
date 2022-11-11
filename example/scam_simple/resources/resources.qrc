@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>app.ico</file>
+        <file>SourceHanSansCN-Normal.otf</file>
+    </qresource>
+</RCC>

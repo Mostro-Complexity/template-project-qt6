@@ -1,0 +1,71 @@
+{
+  "version": 3,
+  "configurePresets": [
+      {
+          "name": "clang_x64_gnu_cli",
+          "displayName": "Clang 14.0.5 (GNU CLI) for MSVC 17.3.32922.545 (Visual Studio Community 2022 Release - amd64)",
+          "description": "Using compilers: C = C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/Llvm/x64/bin/clang.exe, CXX = C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/Llvm/x64/bin/clang.exe",
+          "binaryDir": "${sourceDir}/out/build/${presetName}",
+          "cacheVariables": {
+              "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+              "CMAKE_C_COMPILER": "clang",
+              "CMAKE_CXX_COMPILER": "clang",
+              "CMAKE_C_COMPILER_FRONTEND_VARIANT": "Clang",
+              "CMAKE_CXX_COMPILER_FRONTEND_VARIANT": "Clang",
+              "CMAKE_BUILD_TYPE": "Debug"
+          }
+      },
+      {
+          "name": "msvc_x64",
+          "displayName": "Visual Studio Community 2022 Release - amd64",
+          "description": "Using compilers for Visual Studio 17 2022 (x64 architecture)",
+          "generator": "Ninja",
+          "architecture": {
+              "value": "x64",
+              "strategy": "external"
+          },
+          "installDir": "${sourceDir}/out/install/${presetName}",
+          "binaryDir": "${sourceDir}/out/build/${presetName}",
+          "condition": {
+              "type": "equals",
+              "lhs": "${hostSystemName}",
+              "rhs": "Windows"
+          },
+          "cacheVariables": {
+              "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+              "CMAKE_C_COMPILER": "cl",
+              "CMAKE_CXX_COMPILER": "cl"
+          }
+      },
+      {
+          "name": "clang_x64_msvc_cli",
+          "displayName": "Clang 14.0.5 (MSVC CLI) for MSVC 17.3.32922.545 (Visual Studio Community 2022 Release - amd64)",
+          "description": "Using compilers: C = C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/Llvm/x64/bin/clang-cl.exe, CXX = C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/Llvm/x64/bin/clang-cl.exe",
+          "generator": "Visual Studio 17 2022",
+          "toolset": "host=amd64",
+          "architecture": "amd64",
+          "binaryDir": "${sourceDir}/out/build/${presetName}",
+          "cacheVariables": {
+              "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+              "CMAKE_C_COMPILER": "clang-cl",
+              "CMAKE_CXX_COMPILER": "clang-cl",
+              "CMAKE_C_COMPILER_FRONTEND_VARIANT": "Clang-Cl",
+              "CMAKE_CXX_COMPILER_FRONTEND_VARIANT": "Clang-Cl"
+          }
+      }
+  ],
+  "buildPresets": [
+      {
+          "name": "msvc-debug",
+          "displayName": "Visual Studio Community 2022 Release - amd64 - Debug",
+          "configurePreset": "msvc_x64",
+          "configuration": "Debug"
+      },
+      {
+          "name": "clang-debug",
+          "displayName": "Clang 14.0.5 (GNU CLI) for MSVC 17.3.32922.545 (Visual Studio Community 2022 Release - amd64) - Debug",
+          "configurePreset": "clang_x64_gnu_cli",
+          "configuration": "Debug"
+      }
+  ]
+}
