@@ -1,0 +1,48 @@
+format:
+  # How many spaces to tab for indent
+  tab_size: 2
+
+  # How wide to allow formatted cmake files
+  line_width: 80
+
+  # If a statement is wrapped to more than one line, than dangle the closing
+  # parenthesis on its own line.
+  dangle_parens: true
+
+  # If an argument group contains more than this many sub-groups (parg or kwarg
+  # groups) then force it to a vertical layout.
+  max_subgroups_hwrap: 4
+
+  # What style line endings to use in the output.
+  line_ending: "unix"
+
+  # If a cmdline positional group consumes more than this many lines without
+  # nesting, then invalidate the layout (and nest)
+  max_rows_cmdline: 2
+
+  # If true, separate flow control names from their parentheses with a space
+  separate_ctrl_name_with_space: False
+
+  # If true, separate function names from parentheses with a space
+  separate_fn_name_with_space: False
+
+  # Require no more than this many newlines between statements
+  max_statement_spacing: 2
+
+  max_returns: 6
+  max_branches: 12
+  max_arguments: 5
+  max_localvars: 15
+  max_statements: 50
+
+  # If an argument group contains more than this many sub-groups (parg or kwarg
+  # groups) then force it to a vertical layout.
+  max_pargs_hwrap: 15
+
+  # If true, the argument lists which are known to be sortable will be sorted
+  # lexicographicall
+  enable_sort: True
+
+  # If true, the parsers may infer whether or not an argument list is sortable
+  # (without annotation).
+  autosort: False
